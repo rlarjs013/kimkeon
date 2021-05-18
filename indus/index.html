@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <title></title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!--[if IE]>
+        	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <script type="text/javascript">
+        function time(){
+        var time= new Date();
+            document.getElementById("date").innerHTML=time.getFullYear()+"년"+(time.getMonth()+1)+"월"+time.getDate()+"일";
+            document.getElementById("time").innerHTML=time.getHours()+"시"+time.getMinutes()+"분"+time.getSeconds()+"초";
+            setInterval("time()",1000);
+        }
+        
+        $(document).ready(function(){
+
+// #data에 내용이 입력되면 동작한다.
+
+$("#data").keyup(function(){
+
+    // #data에 내용이 입력되면 rawdata라는 객체가 생긴다.
+
+    // rawdata 객체는 #data의 내용을 담고 있다.
+
+    var rawdata = $("#data").val();
+
+    // rawdata를 #source에 text로 세팅한다.
+
+    $("#source").text(rawdata);
+
+    // rawdata를 #display에 html이 적용된 걸로 출력한다.
+
+    $("#display").html(rawdata);
+
+});
+
+});     
+  
+
+
+        </script>
+	</head>
+	
+    <body onload="time()">
+        <h2> 오늘 날짜: <span id="date"></span></h2>
+        <h2> 현재 시간: <span id="time"></span></h2>
+        
+
+        <form>
+            <input type=text name=floor5 value=500>
+            <input type=button value="증가" onClick="javascript:this.form.floor5.value++;">
+            <input type=button value="감소" onClick="javascript:this.form.floor5.value--;">
+        </form>
+
+        <form>
+            <input type=text name=floor3 value=500>
+            <input type=button value="증가" onClick="javascript:this.form.floor3.value++;">
+            <input type=button value="감소" onClick="javascript:this.form.floor3.value--;">
+        </form>
+
+        
+      
+
+        <form>
+
+            HTML 연습기<br/>
+            
+            <textarea rows="6" cols="40" id="data"></textarea><br/><br/>
+            
+            &lt;소스를 출력부분&gt;<br/>
+            
+            <span id="source"></span><br/><br/>
+            
+            &lt;HTML이 적용 된 것을 확인하는 부분&gt;<br/>
+            
+            <span id="display"></span>
+            
+            </form>
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+</html>
